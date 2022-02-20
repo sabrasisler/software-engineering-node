@@ -3,7 +3,7 @@ import UserController from "./controllers/UserController";
 import TuitController from './controllers/TuitController';
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb+srv://ssisler:securepassword@cluster0.uwi8v.mongodb.net/Tuiter?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://sabrasisler:securepassword@tuitera2.nghpg.mongodb.net/TuiterA2?retryWrites=true&w=majority");
 const app = express();
 app.use(express.json());
 const userController = UserController.getInstance(app);
