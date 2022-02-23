@@ -37,7 +37,7 @@
              app.get("/users/:uid/likes", LikeController.likeController.findAllTuitsLikedByUser);
              app.get("/tuits/:tid/likes", LikeController.likeController.findAllUsersThatLikedTuit);
              app.post("/users/:uid/likes/:tid", LikeController.likeController.userLikesTuit);
-             app.delete("/users/:uid/unlikes/:tid", LikeController.likeController.userUnlikesTuit);
+             app.delete("/users/:uid/likes/:tid", LikeController.likeController.userUnlikesTuit);
          }
          return LikeController.likeController;
      }
