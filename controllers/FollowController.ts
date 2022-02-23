@@ -29,7 +29,7 @@
       * Creates singleton controller instance
       * @param {Express} app Express instance to declare the RESTful Web service
       * API
-      * @return TuitController
+      * @return FollowController
       */
      public static getInstance = (app: Express): FollowController => {
          if(FollowController.followController === null) {
@@ -49,7 +49,7 @@
       * @param {Request} req Represents request from client, including the path
       * parameter uid representing the user being followed
       * @param {Response} res Represents response to client, including the
-      * body formatted as JSON arrays containing the users that were following 
+      * body formatted as JSON arrays containing the users that are followees 
       */
      findAllUsersFollowingUser = (req: Request, res: Response) =>
          FollowController.followDao.findAllUsersFollowingUser(req.params.uid)
@@ -60,7 +60,7 @@
       * @param {Request} req Represents request from client, including the path
       * parameter uid representing the user that is following
       * @param {Response} res Represents response to client, including the
-      * body formatted as JSON arrays containing the users that were being followed
+      * body formatted as JSON arrays containing the users that are being followed
       */
      findAllUsersFollowedByUser = (req: Request, res: Response) =>
          FollowController.followDao.findAllUsersFollowedByUser(req.params.uid)

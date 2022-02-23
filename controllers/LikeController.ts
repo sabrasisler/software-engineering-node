@@ -15,7 +15,7 @@
   *     </li>
   *     <li>POST /users/:uid/likes/:tid to record that a user likes a tuit
   *     </li>
-  *     <li>DELETE /users/:uid/unlikes/:tid to record that a user
+  *     <li>DELETE /users/:uid/likes/:tid to record that a user
   *     no londer likes a tuit</li>
   * </ul>
   * @property {LikeDao} likeDao Singleton DAO implementing likes CRUD operations
@@ -29,7 +29,7 @@
       * Creates singleton controller instance
       * @param {Express} app Express instance to declare the RESTful Web service
       * API
-      * @return TuitController
+      * @return LikeController
       */
      public static getInstance = (app: Express): LikeController => {
          if(LikeController.likeController === null) {
