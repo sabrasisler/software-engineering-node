@@ -5,7 +5,7 @@ import Follow from "../models/Follow";
  */
 export default interface FollowDaoI {
     findAllUsersFollowingUser(uid: string): Promise<Follow[]>;
-    findAllUsersFollowedByUser (uid: string): Promise<Follow[]>;
-    userFollowsUser (tid: string, uid: string): Promise<any>;
-    userUnfollowsUser (tid: string, uid: string): Promise<Follow>;
+    findAllUsersFollowedByUser(uid: string): Promise<Follow[]>;
+    userFollowsUser(uid1: string, uid2: string): Promise<Follow>;
+    userUnfollowsUser(uid1: string, uid2: string): Promise<any>;
 };

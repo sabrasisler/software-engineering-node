@@ -16,7 +16,7 @@
   *     <li>POST /users/:uid/likes/:tid to record that a user likes a tuit
   *     </li>
   *     <li>DELETE /users/:uid/likes/:tid to record that a user
-  *     no londer likes a tuit</li>
+  *     no longer likes a tuit</li>
   * </ul>
   * @property {LikeDao} likeDao Singleton DAO implementing likes CRUD operations
   * @property {LikeController} LikeController Singleton controller implementing
