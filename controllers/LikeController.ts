@@ -19,7 +19,7 @@
   *     no longer likes a tuit</li>
   * </ul>
   * @property {LikeDao} likeDao Singleton DAO implementing likes CRUD operations
-  * @property {LikeController} LikeController Singleton controller implementing
+  * @property {LikeController} likeController Singleton controller implementing
   * RESTful Web service API
   */
  export default class LikeController implements LikeControllerI {

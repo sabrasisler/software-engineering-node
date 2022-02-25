@@ -1,5 +1,6 @@
 /**
- * @file Controller RESTful Web service API for tuits resource
+ * @file Controller RESTful Web service API for tuits resource. Uses mongoose TuitModel
+ * to integrate with MongoDB
  */
 import TuitDao from "../daos/TuitDao";
 import Tuit from "../models/tuits/Tuit";
@@ -40,7 +41,7 @@ export default class TuitController implements TuitControllerI {
             app.get("/tuits/:uid", TuitController.tuitController.findTuitById);
             app.post("/users/:uid/tuits", TuitController.tuitController.createTuitByUser);
             app.put("/tuits/:uid", TuitController.tuitController.updateTuit);
-            app.delete("/tuits/:uid", TuitController.tuitController.deleteTuit);
+            app.delete("/tuits/:tid", TuitController.tuitController.deleteTuit);
         }
         return TuitController.tuitController;
     }
@@ -104,7 +105,7 @@ export default class TuitController implements TuitControllerI {
      * @param {Request} req Represents request from client, including path
      * parameter tid identifying the primary key of the tuit to be removed
      * @param {Response} res Represents response to client, including status
-     * on whether deleting a user was successful or not
+     * on whether deleting a tuit was successful or not
      */
     deleteTuit = (req: Request, res: Response) =>
         TuitController.tuitDao.deleteTuit(req.params.uid)

@@ -1,5 +1,5 @@
 /**
- * @file Declares Like data type representing relationship between
+ * @file Declares Message data type representing relationship between
  * users, as in user messages a user
  */
 
@@ -14,7 +14,7 @@ import User from "../users/User";
  * @property {Date} sentOn date in which the message was sent
  */
 
-export default interface Follow {
+export default interface Message {
     sentTo: User,
     sentBy: User
     message: String,

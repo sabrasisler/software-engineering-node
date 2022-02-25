@@ -18,8 +18,8 @@ import FollowControllerI from "../interfaces/FollowControllerI";
  *     <li>DELETE /users/:uid1/follows/:uid2 to record that a user no longer follws a user
  *     </li>
  * </ul>
- * @property {LikeDao} likeDao Singleton DAO implementing likes CRUD operations
- * @property {LikeController} LikeController Singleton controller implementing
+ * @property {FollowDao} followDao Singleton DAO implementing likes CRUD operations
+ * @property {FollowController} FollowController Singleton controller implementing
  * RESTful Web service API
  */
 export default class FollowController implements FollowControllerI {

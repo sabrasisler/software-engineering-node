@@ -13,11 +13,11 @@
   *     </li>
   *     <li>POST /users/:uid/bookmarks/:tid to record that a user bookmarks a tuit
   *     </li>
-  *     <li>DELETE /users/:uid/unbookmarks/:tid to record that a user
+  *     <li>DELETE /users/:uid/bookmarks/:tid to record that a user
   *     no longer wants to bookmark a tuit</li>
   * </ul>
-  * @property {BookmarkDao} BookmarkDao Singleton DAO implementing bookmark CRUD operations
-  * @property {BookmarkController} BookmarkController Singleton controller implementing
+  * @property {BookmarkDao} BookmarkDao Singleton DAO implementing bookmarks CRUD operations
+  * @property {BookmarkController} bookmarkController Singleton controller implementing
   * RESTful Web service API
   */
  export default class BookmarkController implements BookmarkControllerI {
@@ -70,7 +70,7 @@
       * path parameters uid and tid representing the user that is unbookmarking
       * the tuit and the tuit being unbookmarked
       * @param {Response} res Represents response to client, including status
-      * on whether deleting the bookmark was successful or not
+      * on whether deleting the bookmark was successful
       */
      userUnbookmarksTuit = (req: Request, res: Response) =>
          BookmarkController.bookmarkDao.userUnbookmarksTuit(req.params.uid, req.params.tid)

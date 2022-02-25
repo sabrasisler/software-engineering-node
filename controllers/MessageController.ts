@@ -15,11 +15,11 @@ import MessageControllerI from "../interfaces/MessageControllerI";
  *     </li>
  *     <li>POST /users/:uid1/messages/:uid2 to record that a user messages another user
  *     </li>
- *     <li>DELETE /users/:uid/messages/:mid to record that a user wants to 
- *     delete a message they sent</li>
+ *     <li>DELETE /messages/:mid to record that a message is to be deleted wants to 
+ *     </li>
  * </ul>
- * @property {MessageDao} likeDao Singleton DAO implementing likes CRUD operations
- * @property {LikeController} LikeController Singleton controller implementing
+ * @property {MessageDao} messageDao Singleton DAO implementing messages CRUD operations
+ * @property {MesageController} messageController Singleton controller implementing
  * RESTful Web service API
  */
 export default class MessageController implements MessageControllerI {
