@@ -108,6 +108,6 @@ export default class TuitController implements TuitControllerI {
      * on whether deleting a tuit was successful or not
      */
     deleteTuit = (req: Request, res: Response) =>
-        TuitController.tuitDao.deleteTuit(req.params.uid)
+        TuitController.tuitDao.deleteTuit(req.params.tid)
             .then((status) => res.send(status));
 };
