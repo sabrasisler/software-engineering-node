@@ -1,3 +1,6 @@
+/**
+ * @file Implements a mongoose schema that defines the shape of the document in the bookmarks collection.
+ */
 import mongoose, { Schema } from "mongoose";
 import Bookmark from "../../models/bookmarks/Bookmark";
 

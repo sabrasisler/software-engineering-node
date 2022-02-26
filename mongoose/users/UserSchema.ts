@@ -1,6 +1,11 @@
+/**
+ * @file Implements a mongoose schema that defines the shape of the document in the users collection.
+ */
+
 import mongoose from "mongoose";
 import User from "../../models/users/User";
 
+// create the mongoose schema
 const UserSchema = new mongoose.Schema<User>({
     username: {type: String, required: true, default: `testusername${Date.now()}`},
     password: {type: String, required: true, default: `testpassword${Date.now()}`},
