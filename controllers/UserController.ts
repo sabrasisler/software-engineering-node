@@ -132,7 +132,7 @@ export default class UserController implements UserControllerI {
         UserController.userDao.findUserByUsername(req.body.username)
             .then(user => { });
     
-    deleteUsersByUsername(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): void {
+    deleteUsersByUsername(req: Request, res: Response): void {
         UserController.userDao.deleteUsersByUsername(req.body.username)
     };
 
