@@ -6,6 +6,8 @@ import UserDao from "../daos/UserDao";
 import User from "../models/users/User";
 import { Express, Request, Response } from "express";
 import UserControllerI from "../interfaces/UserControllerI";
+import { ParamsDictionary } from "express-serve-static-core";
+import { ParsedQs } from "qs";
 
 /**
  * @class UserController Implements RESTful Web service API for users resource.
@@ -48,6 +50,8 @@ export default class UserController implements UserControllerI {
                 UserController.userController.deleteUser);
             app.delete("/users",
                 UserController.userController.deleteAllUsers);
+            app.delete("users/username/:username/delete",
+                UserController.userController.deleteUsersByUsername);
         }
         return UserController.userController;
     }
@@ -122,13 +126,14 @@ export default class UserController implements UserControllerI {
 
     login = (req: Request, res: Response) =>
         UserController.userDao.findUserByCredentials(req.body.username, req.body.password)
-            .then(user => {
-                res.json(user)
-            });
+            .then(user => { res.json(user) });
 
     register = (req: Request, res: Response) =>
         UserController.userDao.findUserByUsername(req.body.username)
-            .then(user => {
+            .then(user => { });
+    
+    deleteUsersByUsername(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): void {
+        UserController.userDao.deleteUsersByUsername(req.body.username)
+    };
 
-            })
 };
