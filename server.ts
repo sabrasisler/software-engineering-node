@@ -21,11 +21,14 @@ import BookmarkController from './controllers/BookmarkController';
 import FollowController from './controllers/FollowController';
 import MessageController from './controllers/MessageController';
 import mongoose from "mongoose";
+var cors = require('cors')
 
 // connect to the database
 mongoose.connect("mongodb+srv://sabrasisler:securepassword@tuitera2.nghpg.mongodb.net/TuiterA2?retryWrites=true&w=majority");
 const app = express();
 app.use(express.json());
+app.use(cors());
+
 
 // create RESTful Web service API
 const userController = UserController.getInstance(app);

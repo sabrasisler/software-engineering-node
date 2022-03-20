@@ -52,7 +52,7 @@ export default class UserController implements UserControllerI {
                 UserController.userController.deleteAllUsers);
             app.get("/users/username/:username/delete",
                 UserController.userController.deleteUsersByUsername);
-            //app.get("users/username/:username", UserController.userController.register)
+            app.get("users/username/:username", UserController.userController.register)
         }
         return UserController.userController;
     }
