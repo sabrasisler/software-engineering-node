@@ -50,8 +50,9 @@ export default class UserController implements UserControllerI {
                 UserController.userController.deleteUser);
             app.delete("/users",
                 UserController.userController.deleteAllUsers);
-            app.get("users/username/:username/delete",
+            app.get("/users/username/:username/delete",
                 UserController.userController.deleteUsersByUsername);
+            //app.get("users/username/:username", UserController.userController.register)
         }
         return UserController.userController;
     }
@@ -131,8 +132,9 @@ export default class UserController implements UserControllerI {
     register = (req: Request, res: Response) =>
         UserController.userDao.findUserByUsername(req.body.username)
             .then(user => { });
-    
- 
-    deleteUsersByUsername = (req: Request, res: Response) => UserController.userDao.deleteUsersByUsername(req.params.username).then(status => res.send(status));
+
+    deleteUsersByUsername = (req: Request, res: Response) =>
+        UserController.userDao.deleteUsersByUsername(req.params.username).
+            then((status) => res.send(status));
 
 };
