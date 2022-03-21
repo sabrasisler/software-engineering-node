@@ -33,7 +33,7 @@ export default class TuitDao implements TuitDaoI {
      * database
      */
     findAllTuits = async (): Promise<Tuit[]> =>
-        TuitModel.find();
+        TuitModel.find().exec();
 
     /**
      * Uses TuitModel to retrieve tuit documents from tuits collection
