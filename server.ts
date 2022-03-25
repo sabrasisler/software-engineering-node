@@ -26,8 +26,8 @@ const session = require("express-session");
 const PROTOCOL = "mongodb+srv";
 const DB_USERNAME = "sabrasisler";
 const DB_PASSWORD = "securepassword";
-const HOST = "cluster0.m8jeh.mongodb.net";
-const DB_NAME = "tuitera2";
+const HOST = "tuitera2.nghpg.mongodb.net";
+const DB_NAME = "TuiterA2";
 const DB_QUERY = "retryWrites=true&w=majority";
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;// connect to the database
 mongoose.connect(connectionString);
