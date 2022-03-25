@@ -5,7 +5,6 @@
 import UserModel from "../mongoose/users/UserModel";
 import User from "../models/users/User";
 import UserDaoI from "../interfaces/UserDaoI";
-import TuitModel from "../mongoose/tuits/TuitModel";
 
 /**
  * @class UserDao Implements Data Access Object managing data storage
@@ -20,13 +19,13 @@ export default class UserDao implements UserDaoI {
      * @returns UserDao
      */
     public static getInstance = (): UserDao => {
-        if (UserDao.userDao === null) {
+        if(UserDao.userDao === null) {
             UserDao.userDao = new UserDao();
         }
         return UserDao.userDao;
     }
-
-    private constructor() { }
+    
+    private constructor() {}
 
     /**
      * Uses UserModel to retrieve all user documents from users collection
@@ -45,6 +44,15 @@ export default class UserDao implements UserDaoI {
         UserModel.findById(uid);
 
     /**
+     * Uses UserModel to retrieve single user document from users collection
+     * by their username
+     * @param {string} username User's username
+     * @returns Promise To be notified when user is retrieved from the database
+     */
+    findUserByUsername = async (username: string): Promise<any> =>
+        UserModel.findOne({username});
+
+    /**
      * Inserts user instance into the database
      * @param {User} user Instance to be inserted into the database
      * @returns Promise To be notified when user is inserted into the database
@@ -60,13 +68,13 @@ export default class UserDao implements UserDaoI {
      */
     updateUser = async (uid: string, user: User): Promise<any> =>
         UserModel.updateOne(
-            { _id: uid },
-            { $set: user });
-
+            {_id: uid},
+            {$set: user});
+    
     updateUserSalaryByUsername = async (username: string, salary: number): Promise<any> =>
         UserModel.updateOne(
-            { username },
-            { $set: { salary: salary } });
+            {username},
+            {$set: {salary: salary}});
 
     /**
      * Removes user from the database.
@@ -74,7 +82,7 @@ export default class UserDao implements UserDaoI {
      * @returns Promise To be notified when user is removed from the database
      */
     deleteUser = async (uid: string): Promise<any> =>
-        UserModel.deleteOne({ _id: uid });
+        UserModel.deleteOne({_id: uid});
 
     /**
      * Removes all users from the database. Useful for testing
@@ -84,12 +92,10 @@ export default class UserDao implements UserDaoI {
     deleteAllUsers = async (): Promise<any> =>
         UserModel.deleteMany({});
 
-    findUserByCredentials = async (username: string, password: string): Promise<any> =>
-        UserModel.findOne({ username: username, password: password });
-
-    findUserByUsername = async (username: string): Promise<any> =>
-        UserModel.findOne({ username });
-
     deleteUsersByUsername = async (username: string): Promise<any> =>
       UserModel.deleteMany({username});
+    
+    findUserByCredentials = async (username: string, password: string): Promise<any> =>
+        UserModel.findOne({username: username, password: password});
+    
 };
