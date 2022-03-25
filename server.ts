@@ -31,14 +31,13 @@ const DB_NAME = "TuiterA2";
 const DB_QUERY = "retryWrites=true&w=majority";
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;// connect to the database
 mongoose.connect(connectionString);
-// mongoose.connect("mongodb+srv://sabrasisler:securepassword@tuitera2.nghpg.mongodb.net/TuiterA2?retryWrites=true&w=majority");
 
 
 
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: 'https://snazzy-salamander-4502f8.netlify.app'
 }));
 
 const SECRET = 'process.env.SECRET';
