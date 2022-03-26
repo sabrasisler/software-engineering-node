@@ -37,7 +37,8 @@ mongoose.connect(connectionString);
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: 'https://snazzy-salamander-4502f8.netlify.app'
+    //origin: 'https://snazzy-salamander-4502f8.netlify.app'
+    origin: 'http://localhost:3000'
 }));
 
 const SECRET = 'process.env.SECRET';
