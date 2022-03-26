@@ -45,7 +45,7 @@ export default class TuitDao implements TuitDaoI{
             {$set: {stats: newStats}}
         );
     updateDislikes =
-        async (tid: string, newStats: any) =>
+        async (tid: string, newStats: any): Promise<any> =>
           TuitModel.updateOne(
             {_id: tid},
             {$set: {stats: newStats}});
