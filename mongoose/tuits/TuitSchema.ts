@@ -1,3 +1,7 @@
+/**
+ * @file Implements a mongoose schema that defines the shape of the document in the tuits collection.
+ */
+
 import mongoose, {Schema} from "mongoose";
 import Tuit from "../../models/tuits/Tuit";
 const TuitSchema = new mongoose.Schema<Tuit>({
