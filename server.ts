@@ -38,24 +38,24 @@ mongoose.connect(connectionString);
 const app = express();
 app.use(cors({
     credentials: true,
-    //origin: 'https://snazzy-salamander-4502f8.netlify.app'
-    origin: 'http://localhost:3000'
+    origin: 'https://snazzy-salamander-4502f8.netlify.app'
+    //origin: 'http://localhost:3000'
 }));
 
-const SECRET = 'process.env.SECRET';
 let sess = {
-    secret: SECRET,
+    secret: process.env.EXPRESS_SESSION_SECRET,
     saveUninitialized: true,
     resave: true,
     cookie: {
-        secure: false
-    }
-}
+        sameSite: "production" === "production" ? 'none' : 'lax',
+        secure: "production" === "production",
+    }}
 
-if (process.env.ENVIRONMENT === 'PRODUCTION') {
+if ("PRODUCTION" === 'PRODUCTION') {
     app.set('trust proxy', 1) // trust first proxy
     sess.cookie.secure = true // serve secure cookies
 }
+
 
 app.use(session(sess))
 app.use(express.json());
